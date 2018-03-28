@@ -1,0 +1,26 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "Pluralsight course application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MikeVelazcoMtz/nodePluralSight.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Miguel Angel Velazco Martinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikeVelazcoMtz/nodePluralSight/issues"
+  },
+  "homepage": "https://github.com/MikeVelazcoMtz/nodePluralSight#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
