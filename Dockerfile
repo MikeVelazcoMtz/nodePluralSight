@@ -10,6 +10,7 @@ COPY ./library/.bowerrc /home/library/
 
 RUN npm install \
     && npm install -g bower\
+    && npm install -g gulp\
     && bower install
 
 COPY ./library /home/library/

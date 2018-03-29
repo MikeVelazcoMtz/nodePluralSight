@@ -23,5 +23,12 @@
   "homepage": "https://github.com/MikeVelazcoMtz/nodePluralSight#readme",
   "dependencies": {
     "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jscs": "^4.1.0",
+    "gulp-jshint": "^2.1.0",
+    "jshint": "^2.9.5",
+    "jshint-stylish": "^2.2.1"
   }
 }
