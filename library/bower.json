@@ -17,5 +17,26 @@
   "dependencies": {
     "bootstrap": "3",
     "font-awesome": "^5.0.9"
+  },
+  "overrides": {
+    "jquery": {
+      "main": [
+        "dist/jquery.min.js"
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.min.js",
+        "dist/css/bootstrap.min.css",
+        "less/bootstrap.less"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "web-fonts-with-css/less/fontawesome.less",
+        "web-fonts-with-css/css/fontawesome.min.css",
+        "web-fonts-with-css/scss/fontawesome.scss"
+      ]
+    }
   }
 }
