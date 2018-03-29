@@ -10,6 +10,8 @@ services:
     volumes:
       - ./library:/home/library
       - /home/library/node_modules
+      - /home/library/public/lib
+
     expose:
       - "5000"
     ports:

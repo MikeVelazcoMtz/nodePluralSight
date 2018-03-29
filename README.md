@@ -17,4 +17,8 @@ There are two ways to run this application:
   1. Run it directly on your computer by running `npm start`.
   2. Run this application with docker-compose by running `docker-compose up`.
 
-If want to work directly on your computer you must run `npm install` in order to install all of the node dependences.
+If want to work directly on your computer you must run `npm install && bower install` in order to install all of the dependences.
+
+**IMPORTANT**
+
+By the moment I was doing this tutorial bower was on way to get deprecated, maybe by the time you see this bower is not maintained anymore. If you consider to use or test this project try to migrate the bower dependencies  to Yarn or Webpack. 
