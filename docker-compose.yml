@@ -1,15 +1,16 @@
 version: "3"
 services:
   node:
-    image: "node"
-    user: "node"
-    working_dir: /home/node/library
+    container_name: node
+    restart: always
+    build: .
+    command: "node app.js"
     environment:
       - NODE_ENV=development
     volumes:
-      - ./library:/home/node/library
+      - ./library:/home/library
+      - /home/library/node_modules
     expose:
-      - "3000"
+      - "5000"
     ports:
-      - "3000:3000"
-    command: "node app.js"
+      - "5000:5000"
