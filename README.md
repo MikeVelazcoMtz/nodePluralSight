@@ -14,7 +14,7 @@ Right now this project only depends on node and npm and that's all we need to ma
 
 There are two ways to run this application:
 
-  1. Run it directly on your computer by running `node app.js`.
+  1. Run it directly on your computer by running `npm start`.
   2. Run this application with docker-compose by running `docker-compose up`.
 
 If want to work directly on your computer you must run `npm install` in order to install all of the node dependences.

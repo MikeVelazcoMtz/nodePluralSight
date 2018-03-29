@@ -4,7 +4,7 @@ services:
     container_name: node
     restart: always
     build: .
-    command: "node app.js"
+    command: "npm start"
     environment:
       - NODE_ENV=development
     volumes:
