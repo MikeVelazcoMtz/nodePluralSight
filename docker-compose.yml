@@ -13,6 +13,6 @@ services:
       - /home/library/public/lib
 
     expose:
-      - "5000"
+      - "3000"
     ports:
-      - "5000:5000"
+      - "3000:3000"

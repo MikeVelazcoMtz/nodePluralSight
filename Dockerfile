@@ -15,4 +15,4 @@ RUN npm install \
 
 COPY ./library /home/library/
 
-EXPOSE 5000
+EXPOSE 3000
