@@ -10,8 +10,43 @@ app.set('views', 'src/views');
 
 app.set('view engine', 'ejs');
 
+var books = [
+    {
+        title: 'War and Peace',
+        genre: 'Historical Fiction',
+        author: 'Lev Nikolayevich Tolstoy',
+        read: false
+    },
+    {
+        title: 'Les Misérables',
+        genre: 'Historical Fiction',
+        author: 'Victor Hugo',
+        read: false
+    },
+    {
+        title: 'The Dark World',
+        genre: 'Fantasy',
+        author: 'Henry Kuttner',
+        read: false
+    },
+    {
+        title: 'A Journey into the Center of the Earth',
+        genre: 'Science Fiction',
+        author: 'Jules Verne',
+        read: false
+    }
+];
+
 bookRouter.route('/').get(function (req, res) {
-    res.send('Hello Books');
+    res.render('books', {
+            title: 'Hello from render',
+            nav: [
+                {Link:'/Books', Text: 'Books'},
+                {Link:'/Authors', Text: 'Authors'}
+            ],
+            books: books
+        }
+    );
 });
 
 bookRouter.route('/single').get(function (req, res) {
@@ -25,7 +60,7 @@ app.get('/', function (req, res) {
         'index',
         {
             title: 'Hello from render',
-            list: [
+            nav: [
                 {Link:'/Books', Text: 'Books'},
                 {Link:'/Authors', Text: 'Authors'}
             ]
