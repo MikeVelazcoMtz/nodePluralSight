@@ -42,7 +42,7 @@ var router = function (nav) {
     bookRouter.route('/:id').get(function (req, res) {
         var id = req.params.id;
 
-         res.render('book', {
+        res.render('book', {
                 title: 'Hello from render',
                 nav: nav,
                 book: books[id]

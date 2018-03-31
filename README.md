@@ -19,6 +19,9 @@ There are two ways to run this application:
 
 If want to work directly on your computer you must run `npm install && bower install` in order to install all of the dependences.
 
+When you get to the part where you need to use a database, you won't have to worry with docker-compose, but if you are working with on your computer you must provide the required configuration to the project for the DB functions.
+
+
 **IMPORTANT**
 
 By the moment I was doing this tutorial bower was on way to get deprecated, maybe by the time you see this bower is not maintained anymore. If you consider to use or test this project try to migrate the bower dependencies  to Yarn or Webpack. 
