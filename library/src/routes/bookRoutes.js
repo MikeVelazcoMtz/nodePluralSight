@@ -1,42 +1,25 @@
 var express = require('express');
-
+var mongodb = require('mongodb');
 var bookRouter = express.Router();
 
 var router = function (nav) {
-    var books = [
-        {
-            title: 'War and Peace',
-            genre: 'Historical Fiction',
-            author: 'Lev Nikolayevich Tolstoy',
-            read: false
-        },
-        {
-            title: 'Les Misérables',
-            genre: 'Historical Fiction',
-            author: 'Victor Hugo',
-            read: false
-        },
-        {
-            title: 'The Dark World',
-            genre: 'Fantasy',
-            author: 'Henry Kuttner',
-            read: false
-        },
-        {
-            title: 'A Journey into the Center of the Earth',
-            genre: 'Science Fiction',
-            author: 'Jules Verne',
-            read: false
-        }
-    ];
+    var url = 'mongodb://mongodb:27017';
+    var books = [];
 
     bookRouter.route('/').get(function (req, res) {
-        res.render('books', {
-                title: 'Hello from render',
-                books: books,
-                nav: nav
-            }
-        );
+        mongodb.connect(url, function (err, client) {
+            var db = client.db('libraryApp');
+            var collection = db.collection('books');
+
+            collection.find({}).toArray(function (err, results) {
+                res.render('books', {
+                    title: 'Hello from render',
+                    books: results,
+                    nav: nav
+                }
+                );
+            });
+        });
     });
 
     bookRouter.route('/:id').get(function (req, res) {
