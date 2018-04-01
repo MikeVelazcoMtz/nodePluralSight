@@ -1,5 +1,6 @@
 var express = require('express');
-var mongodb = require('mongodb');
+var mongodb = require('mongodb').MongoClient;
+var ObjectId = require('mongodb').ObjectID;
 var bookRouter = express.Router();
 
 var router = function (nav) {
@@ -16,21 +17,27 @@ var router = function (nav) {
                     title: 'Hello from render',
                     books: results,
                     nav: nav
-                }
-                );
+                });
             });
         });
     });
 
     bookRouter.route('/:id').get(function (req, res) {
-        var id = req.params.id;
+        var id = new ObjectId(req.params.id);
 
-        res.render('book', {
-                title: 'Hello from render',
-                nav: nav,
-                book: books[id]
-            }
-        );
+        mongodb.connect(url, function (err, client) {
+            var db = client.db('libraryApp');
+            var collection = db.collection('books');
+
+            collection.findOne({_id: id}, function (err, results) {
+                res.render('book', {
+                    title: 'Hello from render',
+                    nav: nav,
+                    book: results
+                }
+                );
+            });
+        });
     });
 
     return bookRouter;
