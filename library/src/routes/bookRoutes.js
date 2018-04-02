@@ -7,6 +7,12 @@ var router = function (nav) {
     var url = 'mongodb://mongodb:27017';
     var books = [];
 
+    bookRouter.use(function(req, res, next) {
+        if (!req.user) {
+            res.redirect('/');
+        }
+        next();
+    });
     bookRouter.route('/').get(function (req, res) {
         mongodb.connect(url, function (err, client) {
             var db = client.db('libraryApp');
