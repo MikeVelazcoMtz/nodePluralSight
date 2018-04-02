@@ -105,11 +105,20 @@
             <br>
             <div class="col-md-2 col-sm-3 text-center">
               Sign In
+              <form action="/auth/signIn" method="POST" name="signInForm">
+                User Name:
+                <input type="text" name="userName">
+                Password:
+                <input type="password" name="password">
+                <input type="submit" value="Sign In">
+              </form>
             </div>
             <div class="col-md-10 col-sm-9">
               Sign Up
               <form action="/auth/signUp" method="POST" name="signUpForm">
+                User Name:
                 <input type="text" name="userName">
+                Password:
                 <input type="password" name="password">
                 <input type="submit" value="Sign Up">
               </form>

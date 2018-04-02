@@ -1,6 +1,7 @@
 var express = require('express');
 var mongodb = require('mongodb').MongoClient;
 var authRouter = express.Router();
+var passport = require('passport');
 
 module.exports = function () {
     authRouter.route('/signUp').post(function (req, res) {
@@ -20,6 +21,12 @@ module.exports = function () {
                 });
             });
         });
+    });
+
+    authRouter.route('/signIn').post(passport.authenticate('local', {
+        failureRedirect: '/',
+    }), function (req, res) {
+        res.redirect('/Auth/profile');
     });
 
     authRouter.route('/profile').get(function (req, res) {
