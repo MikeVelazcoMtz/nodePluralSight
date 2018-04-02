@@ -4,8 +4,21 @@ var authRouter = express.Router();
 
 module.exports = function () {
     authRouter.route('/signUp').post(function (req, res) {
-        req.login(req.body, function () {
-            res.redirect('/Auth/profile');
+        var url = 'mongodb://mongodb:27017';
+
+        mongodb.connect(url, function (err, client) {
+            var db = client.db('libraryApp');
+            var collection = db.collection('users');
+            var user = {
+                username: req.body.userName,
+                password: req.body.password
+            };
+
+            collection.insert(user, function (err, results) {
+                req.login(results.ops[0], function () {
+                    res.redirect('/Auth/profile');
+                });
+            });
         });
     });
 
