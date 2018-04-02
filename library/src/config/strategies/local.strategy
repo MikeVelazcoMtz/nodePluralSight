@@ -1,5 +1,6 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var mongodb = require('mongodb').MongoClient;
 
 module.exports = function () {
     passport.use(
@@ -9,11 +10,28 @@ module.exports = function () {
                 passwordField:  'password',
             },
             function (username, password, done) {
-                var user = {
-                    username: username,
-                    password: password
-                };
-                done(null, user);
+                var url = 'mongodb://mongodb:27017';
+
+                mongodb.connect(url, function (err, client) {
+                    var db = client.db('libraryApp');
+                    var collection = db.collection('users');
+                    collection.findOne({username: username}, function (err, results) {
+                        if (err || !results) {
+                            done(err, false, {
+                                message: 'Error'
+                            });
+                        } else {
+                            if (results.password === password) {
+                                var user = results;
+                                done(null, user);
+                            } else {
+                                done(null, false, {
+                                    message: 'Bad Password'
+                                });
+                            }
+                        }
+                    });
+                });
             }
         )
     );
