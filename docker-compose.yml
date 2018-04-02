@@ -5,6 +5,8 @@ services:
     restart: always
     build: .
     command: "npm start"
+    env_file:
+      - credentials.env
     environment:
       - NODE_ENV=development
       - MONGODB_USER=user

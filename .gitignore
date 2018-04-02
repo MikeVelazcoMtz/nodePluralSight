@@ -1,3 +1,4 @@
 library/node_modules
 library/package-lock.json
 data/db
+credentials.env

@@ -21,7 +21,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
-app.use(session({secret: 'library'}));
+app.use(session({secret: 'library', resave: false, saveUninitialized: true}));
 require('./src/config/passport')(app);
 
 app.set('views', 'src/views');
@@ -45,6 +45,11 @@ app.get('/', function (req, res) {
         }
     );
 });
+
+// Force to have the Goodread's API keys
+if (!process.env.GOODREADS_KEY || !process.env.GOODREADS_SECRET) {
+    throw 'UNSET GOODREADS API VARIABLES';
+}
 
 app.get('/books', function (req, res) {
     res.send('Hello Books!');

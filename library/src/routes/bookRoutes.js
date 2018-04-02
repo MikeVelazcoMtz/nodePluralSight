@@ -1,10 +1,10 @@
 var express = require('express');
 var bookRouter = express.Router();
+var bookService = require('../services/goodreadsService')();
 
 var router = function (nav) {
     var url = 'mongodb://mongodb:27017';
-
-    var bookController = require('../controllers/bookController')(null, nav);
+    var bookController = require('../controllers/bookController')(bookService, nav);
 
     bookRouter.use(bookController.middleware);
     bookRouter.route('/').get(bookController.getIndex);

@@ -24,4 +24,6 @@ When you get to the part where you need to use a database, you won't have to wor
 
 **IMPORTANT**
 
-By the moment I was doing this tutorial bower was on way to get deprecated, maybe by the time you see this bower is not maintained anymore. If you consider to use or test this project try to migrate the bower dependencies  to Yarn or Webpack. 
+By the moment I was doing this tutorial bower was on way to get deprecated, maybe by the time you see this bower is not maintained anymore. If you consider to use or test this project try to migrate the bower dependencies  to Yarn or Webpack.
+
+When working on your computer, you need to set some environment variables available for this applications. check `credentials.env.example` file.

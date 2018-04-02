@@ -1,6 +1,5 @@
 var mongodb = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
-
 var url = 'mongodb://mongodb:27017';
 
 var bookController = function (bookService, nav) {
@@ -25,14 +24,15 @@ var bookController = function (bookService, nav) {
         mongodb.connect(url, function (err, client) {
             var db = client.db('libraryApp');
             var collection = db.collection('books');
-
             collection.findOne({_id: id}, function (err, results) {
-                res.render('book', {
-                    title: 'Hello from render',
-                    nav: nav,
-                    book: results
-                }
-                );
+                bookService.getById(results.bookId, function (err, book) {
+                    results.book = book;
+                    res.render('book', {
+                        title: 'Hello from render',
+                        nav: nav,
+                        book: results
+                    });
+                });
             });
         });
     };
