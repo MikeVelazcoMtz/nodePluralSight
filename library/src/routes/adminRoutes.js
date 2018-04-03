@@ -8,24 +8,28 @@ module.exports = function (nav) {
             {
                 title: 'War and Peace',
                 genre: 'Historical Fiction',
+                bookId: 656,
                 author: 'Lev Nikolayevich Tolstoy',
                 read: false
             },
             {
                 title: 'Les Misérables',
                 genre: 'Historical Fiction',
+                bookId: 24280,
                 author: 'Victor Hugo',
                 read: false
             },
             {
                 title: 'The Dark World',
                 genre: 'Fantasy',
+                bookId: 1881716,
                 author: 'Henry Kuttner',
                 read: false
             },
             {
                 title: 'A Journey into the Center of the Earth',
                 genre: 'Science Fiction',
+                bookId: 32829,
                 author: 'Jules Verne',
                 read: false
             }
